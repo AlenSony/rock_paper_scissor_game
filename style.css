@@ -1,114 +1,127 @@
 *{
     padding:0;
     margin:0;
+    box-sizing: border-box;
 }
 body{
-    background: linear-gradient(45deg,rgb(243, 241, 241),rgb(255, 255, 0));
-    font-size:20px;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2, #9fa4c4);
+    background-size: 400% 400%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: #333;
+    animation: gradientAnimation 15s ease infinite;
+}
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 .main_heading{
-    margin:auto;
-    font-family:Boldonse;
+    margin: 20px auto 40px;
+    font-family: 'Anton', sans-serif;
     text-align: center;
-    display:flex;
-    justify-content: center;
-}
-img{
-    width:100%;
-    z-index: 1;
-    position: relative;
-    size: 150px;
+    font-size: 4rem;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 .choices{
     display:flex;
-    justify-content:space-evenly;
-    height:auto;
-    width:100%;
-    object-fit: cover;;
-    cursor:pointer;
-    flex-shrink: 0;
-    padding:20px;
-}
-.choices img{
-    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
 }
 .choice{
-    margin:25px;
-    padding:0px;
-    border:5px solid yellowgreen;
+    border: 5px solid #34495e;
     border-radius: 50%;
-    box-shadow: 10px -10px 10px black;
-    overflow:hidden;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.choice:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    border-color: #f1c40f;
+}
+.choice img{
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    width:250px;
-    
-
 }
 .scoreboard{
     display:flex;
     justify-content: center;
     align-items: center;
-    gap:55px;
-    font-family: Anton;
-    font-size: 35px;
+    gap: 80px;
+    font-family: 'Anton', sans-serif;
+    font-size: 2rem;
     font-weight: bold;
+    margin-bottom: 40px;
 }
-.userscore{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}
-#userscore{
-    background-color:transparent;
+.userscore, .computerscore {
     text-align: center;
-    font-size: 70px;
-    width:200px;
-    color:rgb(114, 162, 42);
-    border:5px solid yellow;
-    border-radius: 100%;
-    box-shadow: 0px 10px 10px grey;
 }
-.computerscore{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+#userscore, #compscore {
+    font-size: 4rem;
+    margin-top: 10px;
 }
-#compscore{
-    background-color:transparent;
-    color:red;
-    text-align: center;
-    font-size: 70px;
-    border:5px solid yellow;
-    width:200px;
-    border-radius: 100%;
-    box-shadow: 0px 10px 10px grey;
+#userscore {
+    color: #27ae60;
+}
+#compscore {
+    color: #c0392b;
 }
 #msg-board{
-    font-size: 40px;
-
-    display: flex;
-    justify-content: center;
-    margin: 35px;
-    font-family: Lilita One;
-    border:10px solid rgb(181, 189, 21);
-    padding:25px;
-    border-radius: 20px;
-    background-color: transparent;
-}
-.choice:active{
-    transition: 0.1s ease-in-out;
-    scale:0.9;
-    box-shadow: -10px 10px 10px black;
-    transform: translateX(10px);
-    opacity: 0.8;
+    font-size: 2rem;
+    font-family: 'Lilita One', cursive;
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #34495e;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 footer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color:black;
-    font-size: 10px;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+.choice:active{
+    transform: translateY(2px) scale(0.95);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15), 0 3px 3px rgba(0,0,0,0.18);
+    opacity: 0.9;
+}
+
+.winner {
+    border-color: #27ae60 !important; /* Green */
+    transform: scale(1.1) translateY(-10px);
+}
+
+.loser {
+    border-color: #c0392b !important; /* Red */
+    opacity: 0.7;
+}
+
+.draw {
+    border-color: #7f8c8d !important; /* Gray */
 }
 
 
